@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>寓見 · 獨處 | HOZO 好住｜寓好</title>
+    <title>HOZO 好住｜寓好 - 在停留裡遇見生活</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -15,236 +15,150 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Noto Sans TC', sans-serif; line-height: 1.8; letter-spacing: 0.05em; }
         
-        header { padding: 60px 20px 40px; text-align: center; }
-        .brand-logo { font-size: 14px; letter-spacing: 0.3em; color: var(--secondary-text); margin-bottom: 10px; text-transform: uppercase; }
-        .room-title { font-family: 'Noto Serif TC', serif; font-size: 2.5rem; margin-bottom: 10px; }
-        .tagline { color: var(--accent-color); font-size: 1.1rem; font-weight: 300; }
-
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-
-        /* --- 輪播圖區域 --- */
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            height: 450px;
-            overflow: hidden;
-            margin-bottom: 60px;
-            border-radius: 2px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .carousel-track {
-            display: flex;
-            width: 600%; 
-            height: 100%;
-            transition: transform 0.6s cubic-bezier(0.45, 0, 0.55, 1);
-        }
-
-        .slide {
-            width: 100%;
-            height: 100%;
+        body { 
+            background-color: var(--bg-color); 
+            /* 這裡嵌入您的背景圖，並加上一點半透明疊加確保文字清晰 */
+            background-image: linear-gradient(rgba(250, 249, 246, 0.85), rgba(250, 249, 246, 0.85)), url('images/index/background.jpg');
             background-size: cover;
+            background-attachment: fixed;
             background-position: center;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(250, 249, 246, 0.4);
-            border: none;
-            padding: 20px 10px;
-            cursor: pointer;
-            color: var(--text-main);
-            font-size: 24px;
-            z-index: 10;
-            transition: background 0.3s;
-        }
-        .carousel-btn:hover { background: rgba(250, 249, 246, 0.8); }
-        .prev { left: 0; }
-        .next { right: 0; }
-
-        .carousel-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            color: var(--text-main); 
+            font-family: 'Noto Sans TC', sans-serif; 
             display: flex;
-            gap: 12px;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
         }
-        .dot {
-            width: 7px;
-            height: 7px;
-            background: rgba(255,255,255,0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
+
+        /* Logo 區域 */
+        .logo-container {
+            margin-bottom: 50px;
+            text-align: center;
         }
-        .dot.active { background: var(--accent-color); transform: scale(1.3); }
+        .brand-logo-img {
+            max-width: 150px; /* 您可以依據 Logo 形狀調整寬度 */
+            height: auto;
+        }
 
-        /* --- 文案內容區域 (還原第一版) --- */
-        .section { margin-bottom: 80px; }
-        .section-title { font-family: 'Noto Serif TC', serif; font-size: 1.5rem; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; display: inline-block; }
-        
-        .philosophy-content { font-size: 1.1rem; text-align: justify; margin-bottom: 30px; }
-        
-        .quote { font-family: 'Noto Serif TC', serif; font-size: 1.3rem; color: var(--accent-color); border-left: 3px solid var(--accent-color); padding-left: 20px; margin: 40px 0; }
+        /* 品牌核心區 */
+        .hero-section {
+            max-width: 650px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .hero-section h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.2rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hero-section p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 0.1em;
+        }
 
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-top: 40px; }
-        .info-item h4 { font-size: 0.9rem; color: var(--secondary-text); margin-bottom: 5px; }
+        /* 品牌示意圖 (情境圖) */
+        .lifestyle-img-container {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 60px;
+            padding: 10px;
+            background: white; /* 像相框一樣的留白 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .lifestyle-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-        .price-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .price-table th, .price-table td { padding: 15px; text-align: left; border-bottom: 1px solid var(--border-color); }
-        .price-table th { font-weight: 400; color: var(--secondary-text); font-size: 0.9rem; }
-        .highlight-price { font-family: 'Noto Serif TC', serif; font-size: 1.4rem; color: var(--accent-color); }
+        /* 房型選擇區 */
+        .room-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .btn-room {
+            display: block;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.2em;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+        .btn-room:hover {
+            border-color: var(--accent-color);
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(197, 106, 58, 0.1);
+        }
+        .room-id {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        .room-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.2rem;
+        }
 
-        .cta-button { display: block; width: 100%; max-width: 300px; margin: 60px auto; padding: 18px; background-color: var(--accent-color); color: white; text-align: center; text-decoration: none; letter-spacing: 0.2em; transition: 0.3s; }
-        .cta-button:hover { opacity: 0.8; }
-
-        footer { text-align: center; padding: 60px 20px; font-size: 0.8rem; color: var(--secondary-text); }
+        footer {
+            margin-top: auto;
+            padding-top: 80px;
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            letter-spacing: 0.2em;
+        }
 
         @media (max-width: 600px) {
-            .carousel-container { height: 320px; }
-            .room-title { font-size: 1.8rem; }
+            .hero-section h1 { font-size: 1.8rem; }
+            body { padding: 40px 20px; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-logo">HOZO 好住｜寓好</div>
-        <h1 class="room-title">寓見 · 獨處</h1>
-        <p class="tagline">在停留裡，遇見生活</p>
-    </header>
+    <div class="logo-container">
+        <img src="images/index/logo.png" alt="HOZO 好住｜寓好" class="brand-logo-img">
+    </div>
 
-    <div class="container">
-        <div class="carousel-container">
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <div class="carousel-track" id="track">
-                <div class="slide" style="background-image: url('https://a0.muscache.com/im/pictures/610ce801-a99a-4426-ae38-4757647f0467.jpg?im_w=1200')"></div>
-                <div class="slide" style="background-image: url('https://a0.muscache.com/im/pictures/e1b50591-86f4-4934-a5b4-f47c211b3961.jpg?im_w=720')"></div>
-                <div class="slide" style="background-image: url('https://a0.muscache.com/im/pictures/ab43aee6-c202-411b-bc33-6900006eae4a.jpg?im_w=720')"></div>
-                <div class="slide" style="background-image: url('https://a0.muscache.com/im/pictures/565c20c6-0167-4b82-8913-03eee08ecbf2.jpg?im_w=720')"></div>
-                <div class="slide" style="background-image: url('https://a0.muscache.com/im/pictures/afe92872-6dc4-49b0-b518-13f89854be4e.jpg?im_w=720')"></div>
-                <div class="slide" style="background-image: url('https://a0.muscache.com/im/pictures/086f3839-cad5-42af-aaef-2c60fc0829a4.jpg?im_w=720')"></div>
-            </div>
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
-            <div class="carousel-dots" id="dots"></div>
-        </div>
+    <div class="hero-section">
+        <h1>在停留裡，遇見生活。<br>在生活裡，寓見美好。</h1>
+        <p>我們相信停留不只是暫住，也可以是一段生活。<br>把空間準備好，讓日常自然發生。</p>
+    </div>
 
-        <div class="section">
-            <h2 class="section-title">設計理念</h2>
-            <div class="philosophy-content">
-                這是一個向內探索的空間。大量的木質元素（Woody Tone）與柔和的間接光，能撫平城市的躁動。我們希望客人在這裡，不只是睡一覺，而是能與自己安靜地對話。
-            </div>
-            <div class="quote">
-                「在木質的溫潤裡，找回內心的安定。」
-            </div>
-            <div class="philosophy-content">
-                選用沉穩的大地色系與細緻織品，專為需要專注或全然放鬆的您設計。 一張舒適的床、一盞剛好的燈，讓一個人的停留是自在，兩個人的停留是陪伴。 在這裡，短暫的居住，也能長出日常的歸屬感。
-            </div>
-        </div>
+    <div class="lifestyle-img-container">
+        <img src="images/index/lifestyle.jpg" alt="生活情境" class="lifestyle-img">
+    </div>
 
-        <div class="section">
-            <h2 class="section-title">空間細節</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>品牌核心</h4>
-                    <p>寓見 · 獨處</p>
-                </div>
-                <div class="info-item">
-                    <h4>核心感受</h4>
-                    <p>靜謐、安頓</p>
-                </div>
-                <div class="info-item">
-                    <h4>空間關鍵字</h4>
-                    <p>木質、溫柔、包裹感</p>
-                </div>
-                <div class="info-item">
-                    <h4>房號房型</h4>
-                    <p>201 豪華雙人房</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2 class="section-title">租期方案</h2>
-            <table class="price-table">
-                <thead>
-                    <tr>
-                        <th>租期方案</th>
-                        <th>每月房價</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>短期安頓 (1個月)</td>
-                        <td class="highlight-price">NT$ 25,000</td>
-                    </tr>
-                    <tr>
-                        <td>季度停留 (3個月)</td>
-                        <td class="highlight-price">NT$ 20,000</td>
-                    </tr>
-                    <tr>
-                        <td>長期定居 (12個月)</td>
-                        <td class="highlight-price">NT$ 15,000</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <a href="https://line.me/R/ti/p/@432xbdny" class="cta-button">預約您的日常</a>
+    <div class="room-selection">
+        <a href="hozo_room_201.html" class="btn-room">
+            <span class="room-id">201 豪華雙人房</span>
+            <span class="room-name">寓見 · 獨處</span>
+        </a>
+        
+        <a href="hozo_room_203.html" class="btn-room">
+            <span class="room-id">203 豪華四人房</span>
+            <span class="room-name">寓見 · 共好</span>
+        </a>
     </div>
 
     <footer>
-        &copy; 2026 HOZO 好住｜寓好. All Rights Reserved.
+        &copy; 2026 HOZO LIVING. ALL RIGHTS RESERVED.
     </footer>
 
-    <script>
-        let currentIdx = 0;
-        const totalSlides = 6;
-        const track = document.getElementById('track');
-        const dotsContainer = document.getElementById('dots');
-
-        // 動態生成小圓點
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if(i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => jumpToSlide(i));
-            dotsContainer.appendChild(dot);
-        }
-
-        function moveSlide(step) {
-            currentIdx = (currentIdx + step + totalSlides) % totalSlides;
-            updateCarousel();
-        }
-
-        function jumpToSlide(index) {
-            currentIdx = index;
-            updateCarousel();
-        }
-
-        function updateCarousel() {
-            track.style.transform = `translateX(-${currentIdx * (100 / totalSlides)}%)`;
-            document.querySelectorAll('.dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentIdx);
-            });
-        }
-
-        // 手機滑動支援
-        let startX = 0;
-        track.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-        track.addEventListener('touchend', e => {
-            let endX = e.changedTouches[0].clientX;
-            if (startX - endX > 50) moveSlide(1);
-            if (endX - startX > 50) moveSlide(-1);
-        });
-
-        // 每 5 秒自動輪播一次
-        setInterval(() => moveSlide(1), 5000);
-    </script>
 </body>
 </html>
