@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOZO 好住｜寓好 - 在停留裡遇見生活</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FAF9F6;
+            --text-main: #5B4636;
+            --accent-color: #C56A3A;
+            --secondary-text: #8C8C8C;
+            --border-color: #E0DDD5;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-color); 
+            /* 這裡嵌入您的背景圖，並加上一點半透明疊加確保文字清晰 */
+            background-image: linear-gradient(rgba(250, 249, 246, 0.85), rgba(250, 249, 246, 0.85)), url('images/index/background.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: var(--text-main); 
+            font-family: 'Noto Sans TC', sans-serif; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        /* Logo 區域 */
+        .logo-container {
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        .brand-logo-img {
+            max-width: 150px; /* 您可以依據 Logo 形狀調整寬度 */
+            height: auto;
+        }
+
+        /* 品牌核心區 */
+        .hero-section {
+            max-width: 650px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .hero-section h1 {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 2.2rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        .hero-section p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 0.1em;
+        }
+
+        /* 品牌示意圖 (情境圖) */
+        .lifestyle-img-container {
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 60px;
+            padding: 10px;
+            background: white; /* 像相框一樣的留白 */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .lifestyle-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* 房型選擇區 */
+        .room-selection {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        .btn-room {
+            display: block;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            text-decoration: none;
+            text-align: center;
+            letter-spacing: 0.2em;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(5px);
+        }
+        .btn-room:hover {
+            border-color: var(--accent-color);
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(197, 106, 58, 0.1);
+        }
+        .room-id {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        .room-name {
+            font-family: 'Noto Serif TC', serif;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 80px;
+            font-size: 0.8rem;
+            color: var(--secondary-text);
+            letter-spacing: 0.2em;
+        }
+
+        @media (max-width: 600px) {
+            .hero-section h1 { font-size: 1.8rem; }
+            body { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="logo-container">
+        <img src="images/index/logo.png" alt="HOZO 好住｜寓好" class="brand-logo-img">
+    </div>
+
+    <div class="hero-section">
+        <h1>在停留裡，遇見生活。<br>在生活裡，寓見美好。</h1>
+        <p>我們相信停留不只是暫住，也可以是一段生活。<br>把空間準備好，讓日常自然發生。</p>
+    </div>
+
+    <div class="lifestyle-img-container">
+        <img src="images/index/lifestyle.jpg" alt="生活情境" class="lifestyle-img">
+    </div>
+
+    <div class="room-selection">
+        <a href="hozo_room_201.html" class="btn-room">
+            <span class="room-id">201 豪華雙人房</span>
+            <span class="room-name">寓見 · 獨處</span>
+        </a>
+        
+        <a href="hozo_room_203.html" class="btn-room">
+            <span class="room-id">203 豪華四人房</span>
+            <span class="room-name">寓見 · 共好</span>
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2026 HOZO LIVING. ALL RIGHTS RESERVED.
+    </footer>
+
+</body>
+</html>
